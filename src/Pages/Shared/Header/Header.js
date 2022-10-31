@@ -7,8 +7,12 @@ import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
+import Overlay from 'react-bootstrap/Overlay';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { useState } from 'react';
 
 const Header = () => {
+    const [hover, setHover] = useState(false)
     const {user, logOut} = useContext(AuthContext)
 
         const handleLogOut = () => {
@@ -38,7 +42,10 @@ const Header = () => {
                                 <div>
                                     
                                     <button onClick={handleLogOut} className='bg-primary border border-0 text-white fw-bolder me-2'>Log Out</button>
-                                    <span className='text-white fw-semi-bold me-2'>{user?.displayName}</span>
+                                    <Image onMouseOver={() =>setHover(!hover)} style={{ height: '25px' }} roundedCircle src={user?.photoURL} ></Image> 
+
+                                    <p className={hover? 'd-block': 'd-none'}>{user.displayName}</p>
+                                    
                                 </div>
                             :
                             <div>
@@ -47,15 +54,15 @@ const Header = () => {
                             </div>
                         }
                     </div>
-
+{/* 
                     <div>
                         {user?.photoURL?
-                            <Image style={{ height: '25px' }} roundedCircle src={user?.photoURL} ></Image> 
+                            <Image title={user.displayName} style={{ height: '25px' }} roundedCircle src={user?.photoURL} ></Image> 
                         :
                         <FaUser></FaUser>  
                     }
                         
-                    </div>
+                    </div> */}
                     
                 </Navbar.Collapse>
             </Container>

@@ -6,13 +6,13 @@ const LeftSideNav = () => {
     const [courseDetails, setCoursesDetails] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/item')
+        fetch('https://imam-it-foundation-server-site.vercel.app/item')
         .then(res => res.json())
             .then(data => setCoursesDetails(data))
     }, [])
 
     return (
-        <div className=' ms-4 text-white text-center sticky-top'>
+        <div className='text-white text-center sticky-top'>
             <h2 className=''>All courses: {courseDetails.length}</h2>
             <div className=''>
                 {

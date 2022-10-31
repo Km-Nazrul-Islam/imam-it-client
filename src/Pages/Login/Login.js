@@ -2,10 +2,16 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-    const { signIn, setLoading } = useContext(AuthContext)
+    const { signIn, setLoading, providerLogin, } = useContext(AuthContext)
+    const googleProvider = new GoogleAuthProvider()
+
     const [error, setError] = useState(null)
     const navigate = useNavigate();
     const location = useLocation();
@@ -40,6 +46,15 @@ const Login = () => {
             setLoading(false);
         })
     }
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate('/')
+            })
+            .catch(error => console.error(error))
+    }
     return (
         <div className='d-flex flex-column w-50'>
             <h2 className='form-title text-center'>Login</h2>
@@ -56,6 +71,10 @@ const Login = () => {
             </form>
             <p className='text-danger'>{error}</p>
             <p className='d-flex justify-content-between'>Not A Account ? <Link to="/signup">Create A New Account</Link></p>
+            <ButtonGroup vertical>
+                <Button onClick={handleGoogleSignIn} variant='outline-primary'><FaGoogle></FaGoogle> Login With Google</Button>
+                <Button variant='outline-dark mt-2'><FaGithub></FaGithub> Login With Github</Button>
+            </ButtonGroup>
         </div>
     );
 };
