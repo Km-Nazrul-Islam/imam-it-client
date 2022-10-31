@@ -3,16 +3,14 @@ import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
-import Overlay from 'react-bootstrap/Overlay';
-import Tooltip from 'react-bootstrap/Tooltip';
 import { useState } from 'react';
 
 const Header = () => {
     const [hover, setHover] = useState(false)
+    const [light, setLight] = useState(true)
     const {user, logOut} = useContext(AuthContext)
 
         const handleLogOut = () => {
@@ -53,16 +51,9 @@ const Header = () => {
                                     <Link className='text-white ms-2 text-decoration-none fw-bold me-2' to="/signup">Sign Up</Link>
                             </div>
                         }
-                    </div>
-{/* 
-                    <div>
-                        {user?.photoURL?
-                            <Image title={user.displayName} style={{ height: '25px' }} roundedCircle src={user?.photoURL} ></Image> 
-                        :
-                        <FaUser></FaUser>  
-                    }
                         
-                    </div> */}
+                    </div>
+                    <button onClick={() => setLight(!light)} className='btn btn-dark ms-4 py-0'>{light?'Light':'Dark'}</button>
                     
                 </Navbar.Collapse>
             </Container>

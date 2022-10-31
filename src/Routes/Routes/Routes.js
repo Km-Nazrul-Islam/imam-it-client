@@ -32,13 +32,14 @@ export const routes = createBrowserRouter([
                 loader: () => fetch(`https://imam-it-foundation-server-site.vercel.app/item`)
             },
             {
-                path: 'courses/:_id',
+                path: 'courses/:id',
                 element: <CoursesDetails></CoursesDetails>,
-                loader: ({params}) => fetch(`https://imam-it-foundation-server-site.vercel.app/item/${params._id}`)
+                loader: ({params}) => fetch(`https://imam-it-foundation-server-site.vercel.app/item/${params.id}`)
             },
             {
-                path: '/checkout',
-                element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>
+                path: '/checkout/:id',
+                element: <PrivetRoute><CheckOut></CheckOut></PrivetRoute>,
+                loader: ({ params }) => fetch(`https://imam-it-foundation-server-site.vercel.app/item/${params.id}`)
             },
             {
                 path: '/faq',
