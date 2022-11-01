@@ -5,7 +5,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/UserContext';
-import LeftSideNav from '../LeftSideNav/LeftSideNav';
 import { useState } from 'react';
 
 const Header = () => {
@@ -57,9 +56,6 @@ const Header = () => {
                     
                 </Navbar.Collapse>
             </Container>
-            <div className='d-lg-none'>
-                <LeftSideNav></LeftSideNav>
-            </div>
         </Navbar>
     );
 };

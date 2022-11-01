@@ -64,7 +64,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className='d-flex flex-column w-50'>
+        <div className='mx-5'>
             <h2 className='form-title text-center'>Sign Up</h2>
             <form onSubmit={handleSubmit} className='border border-1'>
                 <div className="form-control border border-bottom-0">

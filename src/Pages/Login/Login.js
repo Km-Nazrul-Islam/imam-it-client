@@ -56,7 +56,7 @@ const Login = () => {
             .catch(error => console.error(error))
     }
     return (
-        <div className='d-flex flex-column w-50'>
+        <div className='mx-5'>
             <h2 className='form-title text-center'>Login</h2>
             <form onSubmit={handleSubmit} className='border border-1'>
                 <div className="form-control border border-bottom-0">

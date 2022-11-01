@@ -17,6 +17,7 @@ export const routes = createBrowserRouter([
         path: '/',
         element: <Main></Main>,
         children: [
+
             {
                 path: '/',
                 element: <Home></Home>,
@@ -24,7 +25,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/home',
                 element: <Home></Home>,
-                
+
             },
             {
                 path: 'courses',
@@ -34,7 +35,7 @@ export const routes = createBrowserRouter([
             {
                 path: 'courses/:id',
                 element: <CoursesDetails></CoursesDetails>,
-                loader: ({params}) => fetch(`https://imam-it-foundation-server-site.vercel.app/item/${params.id}`)
+                loader: ({ params }) => fetch(`https://imam-it-foundation-server-site.vercel.app/item/${params.id}`)
             },
             {
                 path: '/checkout/:id',
@@ -66,6 +67,7 @@ export const routes = createBrowserRouter([
                 path: '/footer',
                 element: <Footer></Footer>
             }
+            
         ]
     }
 ])

@@ -9,11 +9,12 @@ const CheckOut = () => {
     return (
         <div className='mt-5'>
             <h2 className='text-center'>Your Premium Packeges is Activieted</h2>
-            <div className='d-flex'>
+            <div className='d-flex mx-5 mt-5 mb-5'>
                 
                 <div>
                     <h2>Course Info:</h2>
                     <h3>Course Name: {course.title}</h3>
+                    <h4>Course Price: {course.price}</h4>
                     <img className='img-fluid w-50' src={course.image_url} alt="" />
                 </div>
                 <div>
