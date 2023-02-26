@@ -57,7 +57,8 @@ const Blog = () => {
             server-side of the application. This way javascript is used on both
             frontend and backend. Node. js runs on chrome v8 engine which
             converts javascript code into machine code, it is highly scalable,
-            lightweight, fast, and data-intensive. Write TO KM Nazrul Islam
+            lightweight, fast, and data-intensive our blog projects. Write To KM
+            Nazrul Islam
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
