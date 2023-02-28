@@ -1,12 +1,12 @@
-import React from 'react';
-import img3 from '../Home/img3.jpg'
+import React from "react"
+import Banner from "./Banner/Banner"
 
 const Home = () => {
-    return (
-        <div>
-            <img className='img-fluid' src={img3} alt="" />
-        </div>
-    );
-};
+  return (
+    <>
+      <Banner></Banner>
+    </>
+  )
+}
 
-export default Home;
+export default Home
